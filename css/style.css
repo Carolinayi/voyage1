@@ -1,0 +1,161 @@
+/* RESET CSS */
+*{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;	
+}
+html{
+	font-size: 16px;
+	font-family: "Arial", sans-serif;
+}
+body{
+	background-color: beige;
+	margin: 0;
+}
+
+#wrapper{
+	margin:0 auto;
+	width: 960px;
+	background-color: white;
+}
+a{
+	text-decoration: none;
+	color: white;
+}
+li{
+	list-style-type: none;
+}
+
+/*******************Voici la partie entête de la page accueil*******************************/
+
+header{
+	background-color: #6882e1;
+	width: 960px;
+	height: 165px;
+	position: relative;
+}
+header ul{
+	padding: 0;
+}
+
+/* Navigation secondaire */
+.title{
+	font-size: 1.5rem;
+	color: white;
+	margin-left: 120px;
+	padding: 30px;
+}
+#logo{
+	width: 110px;
+	position: absolute;
+	top: 5px;
+	left: 20px;
+}
+#menu-entete{
+	margin-right: 5px;
+	position: absolute;
+	top:20px;
+	right: 15px;
+}
+#menu-entete > ul{
+	text-align: center;
+}
+#menu-entete > ul > li{
+	display: inline;
+	margin: 10px;
+	float: left;
+}
+#menu-entete > ul > li a{
+	padding: 10px;
+	border-radius: 5px;
+	line-height: 40px;
+	height: 40px;
+}
+#menu-entete > ul >li >a:hover{
+	background-color: #ffa000;
+}
+
+/* Navigation principale */
+#main-menu{
+	background-color: #ffa000;
+	margin:20px auto;
+	width: 960px;
+	text-align: center;
+}
+#main-menu >ul >li{
+	display: inline;
+	margin: calc(25%/10);
+	width: 15%;
+	font-weight: bold;
+	vertical-align: middle;
+	height: 35px;
+	line-height: 35px;
+}
+#main-menu >ul >li a{
+	padding: 10px;
+	border-radius: 5px;
+	line-height: 40px;
+	height: 40px;
+}
+#main-menu >ul >li a:hover{
+	background-color: #6882e1;
+}
+
+/* Banner */
+#banner{
+   	width: 960px;
+	margin: auto;
+}
+
+/********************Voici la section main de la page accueil*****************/
+#main{
+	width: 960px;
+	margin: 0 auto;
+}
+#titlecatalogue {
+	padding: 20px 0;
+}
+
+/*******************Voici la page Destination/Galerie Photo***************************/
+
+/**************************Voici la partie du pied de page*****************/
+footer{
+	padding: 40px;
+	background-color: #6882e1; 
+	height: 250px;
+}
+footer div.colonne{
+	float: left;
+	width: 50%;
+} 
+footer div.colonne li{
+	display: block;
+	margin-bottom: 5%;
+	color: black;
+}
+footer div.colonne:last-of-type{
+	text-align: right;  
+}
+.colonne a img{
+	height: 35px;
+}
+#coordonnees {
+	clear: left;
+}
+#coordonees ul{
+	list-style-type: none;
+	height: 10px;
+	color: black;
+}
+#coordonnees li{
+	color: black;
+}
+#top{
+	float: right;
+	margin-top:40px;
+}
+#top img{
+		height: 55px;
+}
+
