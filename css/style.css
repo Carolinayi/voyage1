@@ -8,7 +8,7 @@
 /* GLOBAL CSS */
 body {
 	font-family: 'Raleway', sans-serif;
-	font-size: 400;
+	font-weight: 400;
 	background-color: beige;
 	margin: 0;
 }
@@ -114,14 +114,50 @@ header {
 	background-color: #6882e1;
 }
 
-/******************* ACCUEIL *******************/
+/******************* Page ACCUEIL *******************/
 main{
 	width: 100%;
 }
-/* Banner */
+/* Debut Banner */
 #banner{
    	width: 100%;
 }
+#banner img {
+	float: left;
+	width: 800px;
+}
+#banner ul {
+	display: inline;
+}
+.slider_info {
+	float: left;
+	width: 400px;
+	height: 500px;
+	background-color: #252323;
+	color: #fff;
+	padding: 50px;
+}
+.slider_info h2, .slider_info h4 {
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-weight: 500;
+	padding-bottom: 10px;
+}
+.slider_info h4 {
+	color: #5D5D5D;
+	border-bottom: 1px solid #fff;
+	margin-bottom: 20px;
+}
+.slider_info p {
+	padding-bottom: 10px;
+	font-size: 0.8em;
+	line-height: 2em;
+}
+.slider_info > .slider_prix {
+	font-size: 1.3em;
+	color: #ffa000;
+}
+	/* Fin Banner */
 section {
 	padding: 0 50px;
 }
