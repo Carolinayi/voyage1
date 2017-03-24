@@ -1,0 +1,2 @@
+<script src="http://p86-tp-forfaits.projetisi.com/script/forfaits.js"></script>
+http://p86-tp-forfaits.projetisi.com/script/forfaits.js
