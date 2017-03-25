@@ -129,7 +129,7 @@ main{
 	overflow: hidden;
     position: relative;
 }
-ul#slider_diaporama {
+ul#slider_diapo_img {
     width: 4800px;
     height: 500px;
     position: absolute;
@@ -137,18 +137,34 @@ ul#slider_diaporama {
     left: 0;
     transition: left 500ms;
 }
-ul#slider_diaporama > li {
+ul#slider_diapo_img > li {
     display: block;
     float: left;
     width: 800px;
     height: 500px;
 }
 #slider_content{
-    display: none;
 	float: left;
 	width: 400px;
 	height: 500px;
+	overflow: hidden;
+	position: relative;
 	background-color: #252323;
+
+}
+ul#slider_diapo_txt {
+	width: 2400px;
+	height: 500px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	transition: left 500ms;
+}
+ul#slider_diapo_txt > li {
+	display: block;
+	float: left;
+	width: 400px;
+	height: 500px;
 	color: #fff;
 	padding: 50px;
 }

@@ -32,24 +32,22 @@ function extraire_pays (nom) { // param nom vaut forfaits_data[0].nom
 /**
  * Tableaux des forfaits des diapo du slider en page d'accueil
  */
-var diapo_1 = [extraire_nom(forfaits_data[0].nom), extraire_pays(forfaits_data[0].nom), forfaits_data[0].lieu, forfaits_data[0].prix, forfaits_data[0].photo3];
+var diapo_1 = [extraire_nom(forfaits_data[0].nom), extraire_pays(forfaits_data[0].nom), forfaits_data[0].info_cat, forfaits_data[0].prix, forfaits_data[0].photo3];
 console.log(diapo_1);
-var diapo_2 = [extraire_nom(forfaits_data[5].nom), extraire_pays(forfaits_data[5].nom), forfaits_data[5].lieu, forfaits_data[5].prix, forfaits_data[5].photo1];
+var diapo_2 = [extraire_nom(forfaits_data[5].nom), extraire_pays(forfaits_data[5].nom), forfaits_data[5].info_cat, forfaits_data[5].prix, forfaits_data[5].photo1];
 console.log(diapo_2);
-var diapo_3 = [extraire_nom(forfaits_data[8].nom), extraire_pays(forfaits_data[8].nom), forfaits_data[8].lieu, forfaits_data[8].prix, forfaits_data[8].photo3];
+var diapo_3 = [extraire_nom(forfaits_data[8].nom), extraire_pays(forfaits_data[8].nom), forfaits_data[8].info_cat, forfaits_data[8].prix, forfaits_data[8].photo3];
 console.log(diapo_3);
-var diapo_4 = [extraire_nom(forfaits_data[9].nom), extraire_pays(forfaits_data[9].nom), forfaits_data[9].lieu, forfaits_data[9].prix, forfaits_data[9].photo1];
+var diapo_4 = [extraire_nom(forfaits_data[9].nom), extraire_pays(forfaits_data[9].nom), forfaits_data[9].info_cat, forfaits_data[9].prix, forfaits_data[9].photo1];
 console.log(diapo_4);
-var diapo_5 = [extraire_nom(forfaits_data[10].nom), extraire_pays(forfaits_data[10].nom), forfaits_data[10].lieu, forfaits_data[10].prix, forfaits_data[10].photo1];
+var diapo_5 = [extraire_nom(forfaits_data[10].nom), extraire_pays(forfaits_data[10].nom), forfaits_data[10].info_cat, forfaits_data[10].prix, forfaits_data[10].photo1];
 console.log(diapo_5);
-var diapo_6 = [extraire_nom(forfaits_data[11].nom), extraire_pays(forfaits_data[11].nom), forfaits_data[11].lieu, forfaits_data[11].prix, forfaits_data[11].photo2];
+var diapo_6 = [extraire_nom(forfaits_data[11].nom), extraire_pays(forfaits_data[11].nom), forfaits_data[11].info_cat, forfaits_data[11].prix, forfaits_data[11].photo2];
 console.log(diapo_6);
 var galerie_slider = [diapo_1, diapo_2, diapo_3, diapo_4, diapo_5, diapo_6];
 console.log(galerie_slider);
 
 
-
-// ul_slider_diaporama.innerHTML += '<li><h2>' + diapo_1[0] + '</h2><h4>' + diapo_1[1] + '</h4><p>' + diapo_1[2] + </p><p class="slider_prix">' +  ' + diapo_1[3] +  ' $ (CAD)</p></li>';
 
 
 /**
@@ -58,7 +56,8 @@ console.log(galerie_slider);
 // Variables du slider
 var timer_diapo = null;
 var i_diapo_active;
-var ul_slider_img = document.getElementById('slider_diaporama'); // ul
+var ul_slider_img = document.getElementById('slider_diapo_img'); // ul#slider_diapo_img
+var ul_slider_content = document.getElementById('slider_diapo_txt');// ul#slider_diapo_txt
 const DUREE_AFFICHAGE = 6000;
 
 /**
@@ -81,16 +80,17 @@ function afficher_diapo_suiv() {
     }
     console.log(i_diapo_active);
     ul_slider_img.style.left= -800*i_diapo_active + "px";
+    ul_slider_content.style.left= -400*i_diapo_active + "px";
     console.log(ul_slider_img);
 }
-
 /**
- * Fonction ecrire les li du ul_ d'id slider_diaporama (img)
+ * Fonction ecrire les li du ul d'id slider_diaporama (img)
  */
-function ecrire_ul_img() {
+function ecrire_ul_slider() {
     console.log("Appel afficher_diapo_suiv");
     for (var i=0; i<galerie_slider.length; i++) {
         ul_slider_img.innerHTML += '<li><img src="images/' + galerie_slider[i][4] + '"/></li>';
+        ul_slider_content.innerHTML += '<li class="slider_info"><h2>' + galerie_slider[i][0] + '</h2><h4>' + galerie_slider[i][1] + '</h4><p>' + galerie_slider[i][2] + '</p><p class="slider_prix">' +  galerie_slider[i][3] +  ' $ (CAD)</p></li>';
     }
 }
-ecrire_ul_img();
+ecrire_ul_slider();
