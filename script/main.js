@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
 function afficher_diapo_suiv() {
     console.log("Appel afficher_diapo_suiv");
     i_diapo_active++;
-    if (i_diapo_active > galerie_slider.length) { // le slider revient en p0
+    if (i_diapo_active >= galerie_slider.length) { // le slider revient en p0
         i_diapo_active = 0;
     }
     console.log(i_diapo_active);
@@ -88,9 +88,12 @@ function afficher_diapo_suiv() {
  */
 function ecrire_ul_slider() {
     console.log("Appel afficher_diapo_suiv");
+    console.log(galerie_slider.length);
     for (var i=0; i<galerie_slider.length; i++) {
         ul_slider_img.innerHTML += '<li><img src="images/' + galerie_slider[i][4] + '"/></li>';
         ul_slider_content.innerHTML += '<li class="slider_info"><h2>' + galerie_slider[i][0] + '</h2><h4>' + galerie_slider[i][1] + '</h4><p>' + galerie_slider[i][2] + '</p><p class="slider_prix">' +  galerie_slider[i][3] +  ' $ (CAD)</p></li>';
+        console.log(i);
     }
+
 }
 ecrire_ul_slider();
