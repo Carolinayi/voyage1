@@ -21,6 +21,16 @@ body {
 .clear {
 	clear: both;
 }
+h1,h2,h3,h4,h5,h6 {
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-weight: 500;
+	padding-bottom: 10px;
+}
+h1 {
+	border-bottom: 1px solid #252323;
+	margin-bottom: 20px;
+}
 ul > li {
 	list-style-type: none;
 }
@@ -135,7 +145,7 @@ ul#slider_diapo_img {
     position: absolute;
     top: 0;
     left: 0;
-    transition: left 500ms;
+    transition: left 500ms ease-in-out;
 }
 ul#slider_diapo_img > li {
     display: block;
@@ -153,8 +163,8 @@ ul#slider_diapo_img > li {
 
 }
 ul#slider_diapo_txt {
-	width: 2400px;
-	height: 500px;
+	width: 400px;
+	height: 3000px;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -167,11 +177,10 @@ ul#slider_diapo_txt > li {
 	height: 500px;
 	color: #fff;
 	padding: 50px;
+    opacity: 1;
+    transition: opacity 0.3s ease-in;
 }
 .slider_info h2, .slider_info h4 {
-	text-transform: uppercase;
-	letter-spacing: 2px;
-	font-weight: 500;
 	padding-bottom: 10px;
 }
 .slider_info h4 {
@@ -188,23 +197,164 @@ ul#slider_diapo_txt > li {
 	font-size: 1.3em;
 	color: #ffa000;
 }
-	/* Fin Banner */
+/* Fin Banner */
 section {
 	padding:50px;
-}
-h1 {
-	text-transform: uppercase;
-	letter-spacing: 2px;
-	padding-bottom:  20px;
 }
 section > p {
 	margin-bottom: 20px;
     line-height: 1.5em;
 }
+/******************* Page de RESERVATION *******************/
+
+#reservation_titre {
+	height: 210px;
+	margin-top: 50px;
+	background-color: #252323;
+	color: #fff;
+}
+#reservation_titre > img {
+	float: left;
+	padding: 26px;
+}
+#reservation_titre > div {
+	float: left;
+	padding-left: 100px;
+}
+#reservation_titre h2 {
+	padding: 20px 0 10px;
+}
+#reservation_titre h4 {
+	color: #5D5D5D;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #fff;
+}
+#reservation_titre li:first-of-type {
+	margin-top: 20px;
+}
+#reservation_titre li{
+	line-height: 1.5em;
+	letter-spacing: 2px;
+	font-size: 0.85em;
+	font-weight: 200;
+}
+#reservation_titre a {
+	color: #fff;
+}
+#reservation_titre a:hover {
+	color: #ffa000;
+}
+/* Debut du formulaire */
+fieldset {
+	margin: 50px 0;
+	padding: 25px;
+}
+legend {
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	padding: 0 20px;
+	font-weight: 500;
+}
+form li {
+	margin: 20px 0;
+}
+form li label:nth-of-type(2) {
+	padding-left: 50px;
+}
+label {
+	display: inline-block;
+	letter-spacing: 2px;
+}
+input, select {
+	letter-spacing: 2px;
+	padding-left: 10px;
+}
+#client label {
+	width: 12%;
+}
+#voyage label {
+	width: 25%;
+}
+#client input {
+	width: 34%;
+}
+#voyage input, #voyage select {
+	width: 21%;
+}
+form li input:nth-of-type(2), form li select {
+	margin-left: 80px;
+}
+/* Fin du formulaire */
+/* Debut du tableau recapitulatif */
+table {
+	width: 100%;
+	letter-spacing: 2px;
+	/*border: 1px solid #252323;*/
+	margin-bottom: 50px;
+	border-collapse: collapse;
+}
+caption {
+	font-size: 1.25em;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	padding: 20px;
+}
+thead {
+	text-align: left;
+	background-color: #252323;
+	color: #fff;
+}
+thead th {
+	padding: 20px 25px;
+	font-weight: 500;
+	text-transform: uppercase;
+	border: 1px solid #252323;
+}
+td {
+	padding: 10px 20px 10px 25px;
+	font-size: 0.9em;
+	height: 35px;
+	line-height: 35px;
+	border: 1px solid #252323;
+}
+tbody tr:last-of-type {
+	text-transform: uppercase;
+	font-weight: 500;
+}
+tbody tr:last-of-type td:last-of-type {
+	color: #ffa000;
+}
+/* Fin du tableau recapitulatif */
+/* Boutons de validation de la reservation */
+#validation {
+	display: inline-block;
+	margin: 0 30%;
+}
+button#ok, button#cancel {
+	text-transform: uppercase;
+	padding: 10px 40px;
+	cursor: pointer;
+	background-color: #fff;
+	border: 1px solid #252323;
+	color: #ffa000;
+	/*background-color: #ffa000;  Orange
+	border: 1px solid #ffa000;
+	color: #fff;*/
+	margin: 0 50px;
+}
+button#ok:hover, button#cancel:hover {
+	text-transform: uppercase;
+	padding: 10px 40px;
+	cursor: pointer;
+	/*background-color: #ffa000;  Orange
+	border: 1px solid #ffa000;
+	color: #fff;*/
+	margin: 0 50px;
+}
 
 /******************* FOOTER *******************/
 footer {
-	background-color: #6882e1; 
+	background-color: #252323;
 	height: 150px;
 	font-size: 0.8em;
 }
