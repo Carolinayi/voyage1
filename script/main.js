@@ -2,7 +2,7 @@
  * Created by Carolina & Virginie
  * Site : Voyages et Aventures
  */
-'use strict'
+'use strict';
 
 /**
  ****************************************************** JS du Slider en page d'accueil ******************************************************
