@@ -168,7 +168,7 @@ ul#slider_diapo_txt {
 	position: absolute;
 	top: 0;
 	left: 0;
-	transition: left 500ms;
+	transition: top 300ms;
 }
 ul#slider_diapo_txt > li {
 	display: block;
@@ -272,17 +272,23 @@ input, select {
 #client label {
 	width: 12%;
 }
+#client input {
+	width: 38%;
+}
 #voyage label {
 	width: 25%;
-}
-#client input {
-	width: 34%;
 }
 #voyage input, #voyage select {
 	width: 21%;
 }
 form li input:nth-of-type(2), form li select {
 	margin-left: 80px;
+}
+.error {
+	background-color: red;
+}
+.error_msg {
+	color: red;
 }
 /* Fin du formulaire */
 /* Debut du tableau recapitulatif */
@@ -328,7 +334,7 @@ tbody tr:last-of-type td:last-of-type {
 /* Boutons de validation de la reservation */
 #validation {
 	display: inline-block;
-	margin: 0 30%;
+	margin: 0 25%;
 }
 button#ok, button#cancel {
 	text-transform: uppercase;
@@ -337,18 +343,13 @@ button#ok, button#cancel {
 	background-color: #fff;
 	border: 1px solid #252323;
 	color: #ffa000;
-	/*background-color: #ffa000;  Orange
-	border: 1px solid #ffa000;
-	color: #fff;*/
 	margin: 0 50px;
 }
 button#ok:hover, button#cancel:hover {
+	background-color: #252323;
 	text-transform: uppercase;
 	padding: 10px 40px;
 	cursor: pointer;
-	/*background-color: #ffa000;  Orange
-	border: 1px solid #ffa000;
-	color: #fff;*/
 	margin: 0 50px;
 }
 
