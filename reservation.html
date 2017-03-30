@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Reservation</title>
-    <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 </head>
 <body>
 <div id="wrapper">
@@ -57,7 +57,7 @@
                     </ul>
                 </div>
             </div>
-            <form>
+            <form id="form_resa">
                 <fieldset id="client">
                     <legend>Client</legend>
                     <ul>
@@ -133,8 +133,8 @@
                     </tbody>
                 </table>
                 <div id="validation">
-                    <button id="ok">Valider</button>
-                    <button id="cancel">Annuler</button>
+                    <input type="submit" id="ok" value="Valider" />
+                    <input type="submit" id="cancel" value="Annuler" />
                 </div>
             </div>
         </section>
@@ -184,6 +184,8 @@
     </footer>
 </div>
 <script src="http://p86-tp-forfaits.projetisi.com/script/forfaits.js"></script>
-<script src="script/main.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="script/reservation.js"></script>
 </body>
 </html>

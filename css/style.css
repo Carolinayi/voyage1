@@ -129,7 +129,7 @@ main{
 	width: 100%;
 }
 /* Debut Banner */
-#banner{
+#container_slider{
    	width: 100%;
 }
 #slider_images {
@@ -284,11 +284,13 @@ input, select {
 form li input:nth-of-type(2), form li select {
 	margin-left: 80px;
 }
-.error {
-	background-color: red;
+#form_resa .error {
+	border : 2px solid red;
 }
-.error_msg {
-	color: red;
+#form_resa .error_msg {
+	display : inline-block;
+	margin:0;
+	color:red;
 }
 /* Fin du formulaire */
 /* Debut du tableau recapitulatif */
@@ -336,7 +338,7 @@ tbody tr:last-of-type td:last-of-type {
 	display: inline-block;
 	margin: 0 25%;
 }
-button#ok, button#cancel {
+input[type="submit"]#ok, input[type="submit"]#cancel {
 	text-transform: uppercase;
 	padding: 10px 40px;
 	cursor: pointer;
@@ -345,7 +347,7 @@ button#ok, button#cancel {
 	color: #ffa000;
 	margin: 0 50px;
 }
-button#ok:hover, button#cancel:hover {
+input[type="submit"]#ok:hover, input[type="submit"]#cancel:hover {
 	background-color: #252323;
 	text-transform: uppercase;
 	padding: 10px 40px;

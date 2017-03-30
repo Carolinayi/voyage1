@@ -18,7 +18,7 @@ var timer = null;
 var i_diapo_active = 0;
 var ul_slider_img = null;
 var ul_slider_content = null;
-const DUREE_AFFICHAGE = 6000;
+const DUREE_AFFICHAGE = 5000;
 
 /**
  * Synchronisation
