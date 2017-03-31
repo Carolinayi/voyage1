@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Catalogue</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css" />
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 </head>
 <body>
 <div id="wrapper">
@@ -40,31 +42,32 @@
         </nav>
     </header>
     <main>
-        <section>
-            <h1 id="titlecatalogue">Galerie Photo</h1>
-            <ul>
-                <li>
-                    <img src="http://placehold.it/300x250">
-                    <img src="http://placehold.it/300x250">
-                    <img src="http://placehold.it/300x250">
-                </li>
-                <li>
-                    <img src="http://placehold.it/300x250">
-                    <img src="http://placehold.it/300x250">
-                    <img src="http://placehold.it/300x250">
-                </li>
-                <li>
-                    <img src="http://placehold.it/300x250">
-                    <img src="http://placehold.it/300x250">
-                    <img src="http://placehold.it/300x250">
-                </li>
-                <li>
-                    <img src="http://placehold.it/300x250">
-                    <img src="http://placehold.it/300x250">
-                    <img src="http://placehold.it/300x250">
-                </li>
-            </ul>
-        </section>
+        <div id="content">
+            <div id="accordion_cats">
+                <h3></h3>
+                <div>
+                    <ul class="forfait_list"></ul>
+                </div>
+                <h3></h3>
+                <div>
+                    <ul class="forfait_list"></ul>
+                </div>
+                <h3></h3>
+                <div>
+                    <ul class="forfait_list"></ul>
+                </div>
+                <h3></h3>
+                <div>
+                    <ul class="forfait_list"></ul>
+                </div>
+            </div>
+            <div id="detail_forfait">
+                <h4></h4>
+                <img src="" alt="" />
+                <p></p>
+                <a class="reservation" href="#">Réserver</a>
+            </div>
+        </div>
     </main>
     <footer>
         <!--Voici le pied de page-->
@@ -103,7 +106,10 @@
         </div>
     </footer>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 <script src="http://p86-tp-forfaits.projetisi.com/script/forfaits.js"></script>
-<script src="script/main.js"></script>
+<script src="script/common.js"></script>
+<script src="script/catalogue.js"></script>
 </body>
 </html>
