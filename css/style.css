@@ -205,6 +205,199 @@ section > p {
 	margin-bottom: 20px;
     line-height: 1.5em;
 }
+
+/******************* CATALOGUE *******************/
+
+#accordion_cats h3 {
+	background-color: #6882e1;
+	color: white;
+	cursor: pointer;
+	padding: 18px;
+	width: 100%;
+	text-align: left;
+	transition: 0.4s;
+	display: inline-block;
+}
+
+#accordion_cats > div{
+	display: none;
+}
+
+#accordion_cats h3:hover, #accordion_cats h3.active{
+	background-color: #ffa000;
+}
+.forfait_list {
+	padding: 0 18px;
+	background-color: white;
+}
+.forfait {
+	margin-top : 20px;
+	position: relative;
+}
+.forfait img{
+	display: inline-block;
+}
+.forfait h4 {
+	font-size: 20px;
+	margin-top: 10px;
+	position: absolute;
+	left: 250px;
+	top: 15px;
+}
+ul.forfaits {
+	list-style-type: none;
+}
+#ref_cat{
+	position: absolute;
+	left: 250px;
+	top: 60px;
+	font-style: italic;
+	color: #6882e1;
+}
+#info_extra{
+	position: absolute;
+	left: 250px;
+	top: 90px;
+	width: 50%;
+}
+#prix {
+	position: absolute;
+	right: 100px;
+	top: 60px;
+	font-weight: bold;
+}
+
+#jours {
+	font-weight: bold;
+	position: absolute;
+	right: 100px;
+	top: 80px;
+}
+.forfait_detail {
+	display:inline-block;
+	height:50px;
+	line-height: 50px;
+	width:5em;
+	border-radius:20px 10px;
+	background-color: #ffa000;
+	font-weight: bolder;
+	float:right;
+	margin-right: 100px;
+	margin-top: 100px;
+	text-align: center;
+	vertical-align: middle;
+	text-decoration: none;
+}
+#detail_produit {
+	display : none;
+	background: white;
+	border-radius: 10px;
+	margin: 100px auto;
+	position: relative;
+	width: 500px;
+	padding: 40px;
+}
+#detail_forfait2{
+	position: relative;
+	font-size: 14px;
+}
+#detail_forfait2 .info{
+	color: #6882e1;
+	font-style: italic;
+	font-weight: bold;
+}
+#detail_forfait2 .sup_info{
+	font-weight: bold;
+	top: 80px;
+	right: 150px;
+	text-align: left;
+	position: absolute;
+}
+#detail_forfait2 .sup_info.deux{
+	margin-top: 20px;
+}
+#detail_forfait2 .sup_info.trois{
+	margin-top: 40px;
+}
+#detail_forfait2 .sup_info.quatre{
+	margin-top: 60px;
+}
+#detail_forfait2 .sup_info.cinq{
+	margin-top: 80px;
+}
+#detail_forfait2 .reservation{
+	position: absolute;
+	right: 150px;
+	top: 200px;
+	background-color: #ffa000;
+	padding: 10px;
+	border-radius: 15px;
+	font-weight: bold;
+}
+#detail_forfait2 .contact {
+	margin-top: 15px;
+}
+
+.mb_container {
+	display:none;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	top: 0;
+	right: 0;
+	width: 100%;
+	margin-right: auto;
+	margin-left: auto;
+	z-index: 100;
+}
+
+.mb_container > .mb_background {
+	display: block;
+	background-color: black;
+	opacity: 0.8;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+}
+
+/* Seconde boite de dialogue */
+#detail_forfait2 {
+	background: white;
+	display: none;
+	margin: 100px auto;
+	position: relative;
+	width: 1000px;
+	padding: 40px;
+	border: 10px solid #ffa000;
+}
+
+
+#cat_imag{
+	float: left;
+	width: 500px;
+	height: 200px;
+	overflow: hidden;
+	position: relative;
+}
+ul#images_list {
+	width: 1500px;
+	height: 200px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	transition: left 500ms;
+}
+ul#images_list > li {
+	display: inline-block;
+	width: 500px;
+	height: 400px;
+}
+ul#images_list > li img {
+	 width: 500px;
+	 height: 300px;
+ }
+ 
 /******************* Page de RESERVATION *******************/
 
 #reservation_titre {
