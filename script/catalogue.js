@@ -6,6 +6,11 @@
 "use strict";
 
 var catalogue_cont;
+var timer_forfait = null;
+var index_image = 0;
+
+const DUREE_AFFICHAGE = 3000;
+
 
 // Synchrornisation
 $(function(){
@@ -16,23 +21,67 @@ $(function(){
     afficher_forfaits();
     update_accordion(catalogue_cont.children('h3:first'));
 
-
     // Écouter au click sur les hyperliens de classe 'forfait_detail'
     $('a.forfait_detail').on('click', function(event){
         event.preventDefault(); // Bloquer la navigation
         // Aller chercher le href de l'hyperlien target
+        var div_details = $('#detail_forfait2'); // Le div de la lightbox des détails de forfait
+
+        div_details.children().remove();
+
         console.log($(this).attr('href'));
         var forfid_lien = getParameterByName('forfid', $(this).attr('href')); // Valeur du id du forfait dans l'hyperlien
         console.log('id du forfait : ', forfid_lien);
         var forfait = forfaits_data[forfid_lien]; // Le forfait dont il faut afficher les détails
-        var div_details = $('#detail_forfait'); // Le div de la lightbox des détails de forfait
-        div_details.find('h4').text(forfait.nom);
-        div_details.find('img').attr('src', EXT_IMG_PATH + forfait.photo1);
-        div_details.find('a.reservation').attr('href', 'reservation.html?forfid=' + forfid_lien);
+        //Information detallée de chaque forfait.
+        div_details.append('<h3>' + forfait.nom + '</h3>');
+        div_details.append('<div id="cat_imag"><ul id="images_list"></ul></div>');
+        div_details.append('<div><p class="info">' + forfait.ref_forfait + '</p></div>');
+        div_details.append('<div><p class="info">' + forfait.info_cat + '</p></div>');
+        div_details.append('<h4>' +'Hebergement'+ '</h4>');
+        div_details.append(forfait.hebergement);
+        div_details.find('ul').eq(1).attr('id','info_heber');
+        div_details.append(forfait.lieu);
+        div_details.find('ul').eq(2).attr('id','info_lieu');
+        div_details.append(forfait.niveau);
+        div_details.find('ul').eq(3).attr('id','forfait_niveau');
+        div_details.append('<p class="sup_info un">' +'Debut saison : '+ forfait.debut_saison + '</p>');
+        div_details.append('<p class="sup_info deux">' +'Fin saison : '+forfait.fin_saison + '</p>');
+        div_details.append('<p class="sup_info trois">' +'Jours: ' + forfait.duree + '</p>');
+        div_details.append('<p class="sup_info quatre">' +'Prix par personne :' + forfait.prix + '$'+ '</p>');
+        div_details.append('<p class="sup_info cinq">' +'Places disponibles: ' + forfait.places_dispo + '</p>');
+        div_details.append('<p>' +'Maximum d\'animaux: ' +forfait.max_animaux + '</p>');
+        div_details.append('<p>' +'Prix par animal: ' + forfait.prix_animal + '$'+'</p>');
+        div_details.append('<p class="contact">' +'Information pour nous contacter :' +forfait.infos + '</p>');
+        div_details.find('ul').eq(4).attr('id','address');
+        div_details.append(forfait.infos);
+        div_details.append('<a class="reservation" href="reservation.html?forfid=' + forfid_lien + '">Réserver</a>');
 
+        //Images pour le carousel de chaque detail forfait
+        div_details.find('#images_list').append('<li><img src="' + EXT_IMG_PATH + forfait.photo1 + '"/></li>');
+        div_details.find('#images_list').append('<li><img src="' + EXT_IMG_PATH + forfait.photo2 + '"/></li>');
+        div_details.find('#images_list').append('<li><img src="' + EXT_IMG_PATH + forfait.photo3 + '"/></li>');
+
+        //Instructions pour les images dans le carousel
+        index_image = 0;
+
+        if (timer_forfait !== null) {
+            clearInterval(timer_forfait);
+        }
+        timer_forfait = setInterval(afficher_images, DUREE_AFFICHAGE);
+
+        //Instructions pour la boite modale.
+        div_details.addClass('.mb_item').show();
+        $('.mb_container').fadeIn();
+        $(".mb_background").on ('click',function () {
+            console.log('.mb_background');
+            $('.mb_container').fadeOut(1000, function () {
+                div_details.hide();
+            })
+        })
 
     });
-
+    //Evenement de l'accordion
     $('h3').on ('click',function () {
         update_accordion(this);
     });
@@ -74,20 +123,34 @@ function afficher_forfaits() {
 }
 
 /**
+ * Instructions pour l'accordion
  * Ferme le volet actif et ouvre le volet donné par le h3 active
- * @param new_active_h3 : Élément h3 qui doit être ouvert
+ * Element qui doit être ouvert
  */
 function update_accordion(new_active_h3) {
+
+    var currentActiveH3 = catalogue_cont.children('h3.active');
+
     catalogue_cont
         .children('h3.active')
         .removeClass('active')
         .next() // Le div qui suit le h3
         .slideUp(300);
-    $(new_active_h3)
-        .addClass('active')
-        .next()
-        .slideDown(300);
+
+    if (!currentActiveH3.is($(new_active_h3))) {
+        $(new_active_h3)
+            .addClass('active')
+            .next()
+            .slideDown(300);
+    }
+
 }
 
-
-
+//Instructions pour les images du carrousel
+function afficher_images() {
+    index_image++;
+    if (index_image == 3) {
+        index_image = 0;
+    }
+    $('#images_list').css('left', (-500 * index_image + "px"));
+}
