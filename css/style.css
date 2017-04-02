@@ -297,35 +297,35 @@ ul.forfaits {
 	width: 500px;
 	padding: 40px;
 }
-#detail_forfait2{
+#mb_detail_forfait{
 	position: relative;
 	font-size: 14px;
 }
-#detail_forfait2 .info{
+#mb_detail_forfait .info{
 	color: #6882e1;
 	font-style: italic;
 	font-weight: bold;
 }
-#detail_forfait2 .sup_info{
+#mb_detail_forfait .sup_info{
 	font-weight: bold;
 	top: 80px;
 	right: 150px;
 	text-align: left;
 	position: absolute;
 }
-#detail_forfait2 .sup_info.deux{
+#mb_detail_forfait .sup_info.deux{
 	margin-top: 20px;
 }
-#detail_forfait2 .sup_info.trois{
+#mb_detail_forfait .sup_info.trois{
 	margin-top: 40px;
 }
-#detail_forfait2 .sup_info.quatre{
+#mb_detail_forfait .sup_info.quatre{
 	margin-top: 60px;
 }
-#detail_forfait2 .sup_info.cinq{
+#mb_detail_forfait .sup_info.cinq{
 	margin-top: 80px;
 }
-#detail_forfait2 .reservation{
+#mb_detail_forfait .reservation{
 	position: absolute;
 	right: 150px;
 	top: 200px;
@@ -334,7 +334,7 @@ ul.forfaits {
 	border-radius: 15px;
 	font-weight: bold;
 }
-#detail_forfait2 .contact {
+#mb_detail_forfait .contact {
 	margin-top: 15px;
 }
 
@@ -362,7 +362,7 @@ ul.forfaits {
 }
 
 /* Seconde boite de dialogue */
-#detail_forfait2 {
+#mb_detail_forfait {
 	background: white;
 	display: none;
 	margin: 100px auto;
@@ -370,6 +370,8 @@ ul.forfaits {
 	width: 1000px;
 	padding: 40px;
 	border: 10px solid #ffa000;
+	height: 800px;
+	overflow-y: scroll;
 }
 
 
