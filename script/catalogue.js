@@ -25,7 +25,7 @@ $(function(){
     $('a.forfait_detail').on('click', function(event){
         event.preventDefault(); // Bloquer la navigation
         // Aller chercher le href de l'hyperlien target
-        var div_details = $('#detail_forfait2'); // Le div de la lightbox des détails de forfait
+        var div_details = $('#mb_detail_forfait'); // Le div de la lightbox des détails de forfait
 
         div_details.children().remove();
 
@@ -54,7 +54,6 @@ $(function(){
         div_details.append('<p>' +'Prix par animal: ' + forfait.prix_animal + '$'+'</p>');
         div_details.append('<p class="contact">' +'Information pour nous contacter :' +forfait.infos + '</p>');
         div_details.find('ul').eq(4).attr('id','address');
-        div_details.append(forfait.infos);
         div_details.append('<a class="reservation" href="reservation.html?forfid=' + forfid_lien + '">Réserver</a>');
 
         //Images pour le carousel de chaque detail forfait
@@ -87,19 +86,25 @@ $(function(){
     });
 });
 
-
 /**
- * Préparer le catalogue en plaçant les categories dans les éléments h3 et div de l'accordéons
+ *Creer les categories dinamiquement
+ *
  */
+
 function afficher_categories() {
     console.log('Appel Afficher categories', 'nb de categories : ', categories.length);
-    var cat_titles = catalogue_cont.children('h3'); // Tous les titres h3 des catégories
-    console.log(cat_titles);
     for (var i=0 ; i < categories.length ; i++) {
         var categorie = categories[i];
-        cat_titles.eq(i).text(categorie);
+        $('<h3>')
+            .appendTo(catalogue_cont)
+            .text(categorie);
+        $('<div><ul class="forfait_list"></ul></div>')
+            .appendTo(catalogue_cont);
     }
 }
+
+
+
 
 /**
  * Afficher le catalogue par catégories, chaque forfait affiché dans le container (l'accordéon) de sa catégorie
