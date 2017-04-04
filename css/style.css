@@ -8,6 +8,7 @@
 /* GLOBAL CSS */
 body {
 	font-family: 'Raleway', sans-serif;
+	letter-spacing: 2px;
 	font-weight: 400;
 	background-color: beige;
 	margin: 0;
@@ -234,19 +235,24 @@ ul.forfait_list {
 }
 li.forfait {
 	clear: both;
+	display: block;
 	width: 100%;
 	height: 185px;
 	position: relative;
 	list-style-type: none;
 }
-.forfait img{
+li.forfait:last-of-type {
+	margin-bottom: 25px;
+}
+
+.forfait img {
 	display: inline-block;
 	float: left;
-	margin: 25px;
+	margin: 25px 25px 0 25px;
 }
 div.forfait_desc {
 	float: left;
-	width: 70%;
+	width: 72%;
 	height: 158px;
 	margin-top: 25px;
 	position: relative;
@@ -276,7 +282,6 @@ div.forfait_desc {
 	position: absolute;
 	bottom: 0;
 	left: 0;
-	/*margin-top: 15px;*/
 	background-color: #252323;
 	color: #ffa000;
 	letter-spacing: 2px;
@@ -293,52 +298,98 @@ div.forfait_desc {
 	color: #252323;
 }
 /* Light Box */
-#detail_produit {
+/*#detail_produit {
 	display : none;
 	background: white;
 	border-radius: 10px;
-	margin: 100px auto;
+	margin: 50px auto;
 	position: relative;
 	width: 500px;
 	padding: 40px;
-}
-#mb_detail_forfait{
+}*/
+#mb_detail_forfait {
 	position: relative;
 	font-size: 14px;
 }
+#mb_detail_forfait h2 {
+	border-bottom: 1px solid #252323;
+}
 #mb_detail_forfait .info{
+	margin: 25px 0;
 	color: #6882e1;
+	letter-spacing: 2px;
 	font-style: italic;
 	font-weight: bold;
 }
-#mb_detail_forfait .sup_info{
+/* Debut slider de la Lightbox */
+#cat_imag{
+	float: left;
+	width: 500px;
+	height: 200px;
+	overflow: hidden;
+	position: relative;
+	margin-bottom: 25px;
+	margin-right: 40px;
+}
+ul#images_list {
+	width: 1500px;
+	height: 200px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	transition: left 500ms;
+}
+ul#images_list > li {
+	display: inline-block;
+	width: 500px;
+	height: 400px;
+}
+ul#images_list > li img {
+	 width: 500px;
+	 height: 300px;
+}
+/* Fin slider de la Lightbox */
+#forf_info {
+	float: left;
+	width: 300px;
+	height: 200px;
 	font-weight: bold;
-	top: 80px;
-	right: 150px;
 	text-align: left;
-	position: absolute;
+	letter-spacing: 2px;
+	line-height: 1.5em;
 }
-#mb_detail_forfait .sup_info.deux{
-	margin-top: 20px;
+#forf_info .un {
+	margin-top: 50px;
 }
-#mb_detail_forfait .sup_info.trois{
-	margin-top: 40px;
+/* Description du forfait */
+#div_details_content {
+	clear: both;
+	line-height: 1.5em;
 }
-#mb_detail_forfait .sup_info.quatre{
-	margin-top: 60px;
+#div_details_content h3 {
+	letter-spacing: 2px;
 }
-#mb_detail_forfait .sup_info.cinq{
-	margin-top: 80px;
-}
+
 #mb_detail_forfait .reservation{
-	position: absolute;
-	right: 150px;
-	top: 200px;
-	background-color: #ffa000;
-	padding: 10px;
-	border-radius: 15px;
-	font-weight: bold;
+	display: inline-block;
+	margin-top: 25px;
+	background-color: #252323;
+	color: #ffa000;
+	letter-spacing: 2px;
+	font-weight: 500;
+	padding: 10px 25px;
+	text-align: center;
+	vertical-align: middle;
+	text-decoration: none;
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
 }
+#mb_detail_forfait .reservation:hover {
+	background-color: #ffa000;
+	color: #252323;
+}
+
+
 #mb_detail_forfait .contact {
 	margin-top: 15px;
 }
@@ -370,7 +421,7 @@ div.forfait_desc {
 #mb_detail_forfait {
 	background: white;
 	display: none;
-	margin: 100px auto;
+	margin: 50px auto;
 	position: relative;
 	width: 1000px;
 	padding: 40px;
@@ -380,30 +431,6 @@ div.forfait_desc {
 }
 
 
-#cat_imag{
-	float: left;
-	width: 500px;
-	height: 200px;
-	overflow: hidden;
-	position: relative;
-}
-ul#images_list {
-	width: 1500px;
-	height: 200px;
-	position: absolute;
-	top: 0;
-	left: 0;
-	transition: left 500ms;
-}
-ul#images_list > li {
-	display: inline-block;
-	width: 500px;
-	height: 400px;
-}
-ul#images_list > li img {
-	 width: 500px;
-	 height: 300px;
- }
  
 /******************* Page de RESERVATION *******************/
 
@@ -460,37 +487,36 @@ form li label:nth-of-type(2) {
 label {
 	display: inline-block;
 	letter-spacing: 2px;
+	width: 25%;
 }
-input, select {
+input {
 	letter-spacing: 2px;
 	padding-left: 10px;
 }
-#client label {
-	width: 12%;
-}
 #client input {
-	width: 38%;
+	width: 40%;
 }
-#voyage label {
-	width: 25%;
+#voyage input {
+	width: 20%;
 }
-#voyage input, #voyage select {
-	width: 21%;
-}
-form li input:nth-of-type(2), form li select {
-	margin-left: 80px;
+fieldset#voyage {
+	position: relative;
 }
 #form_resa .error {
 	border : 2px solid red;
 }
 #form_resa .error_msg {
 	display : inline-block;
-	margin:0 0 0 25px;
+	margin:0 0 0 40px;
 	font-size: 0.9em;
 	color:red;
 }
-#voyage img.ui-datepicker-trigger {
+img.ui-datepicker-trigger {
+	position: absolute;
+	top: 62px;
+	left: 500px;
 	height: 20px;
+	cursor: pointer;
 }
 /* Fin du formulaire */
 /* Debut du tableau recapitulatif */
@@ -498,7 +524,7 @@ table {
 	width: 100%;
 	letter-spacing: 2px;
 	/*border: 1px solid #252323;*/
-	margin-bottom: 50px;
+	margin: 50px 0;
 	border-collapse: collapse;
 }
 caption {
@@ -554,7 +580,45 @@ input[type="submit"]#ok:hover, input[type="submit"]#cancel:hover {
 	cursor: pointer;
 	margin: 0 50px;
 }
-
+#confirmation,
+#annulation {
+	background: white;
+	display: none;
+	margin: 50px auto;
+	position: relative;
+	width: 600px;
+	height:400px;
+	padding: 40px;
+	border: 10px solid #ffa000;
+	overflow-y: scroll;
+}
+#confirmation h3,
+#annulation h3{
+	margin-bottom: 25px;
+	border-bottom: 1px solid #252323;
+}
+#confirmation .ok,
+#confirmation .cancel,
+#annulation .cancel {
+	display: inline-block;
+	margin: 25px 25px 0 0;
+	background-color: #252323;
+	color: #ffa000;
+	letter-spacing: 2px;
+	font-weight: 500;
+	padding: 10px 25px;
+	text-align: center;
+	vertical-align: middle;
+	text-decoration: none;
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
+}
+#confirmation .ok:hover,
+#confirmation .cancel:hover,
+#annulation .cancel:hover{
+	background-color: #ffa000;
+	color: #252323;
+}
 /******************* FOOTER *******************/
 footer {
 	background-color: #252323;

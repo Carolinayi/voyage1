@@ -50,27 +50,27 @@
                     <ul>
                         <li>
                             <label for="lastname">Nom (*)</label><!--
-                            --><input type="text" name="lastname" id="lastname" />
+                            --><input type="text" name="lastname" id="lastname"/>
                         </li>
                         <li>
                             <label for="firstname">Prenom (*)</label><!--
-                            --><input type="text" name="firstname" id="firstname" />
+                            --><input type="text" name="firstname" id="firstname"/>
                         </li>
                         <li>
                             <label for="courriel">Courriel (*)</label><!--
-                            --><input type="email" name="courriel" id="courriel" />
+                            --><input type="email" name="courriel" id="courriel"/>
                         </li>
                         <li>
                             <label for="telephone">Telephone (*)</label><!--
-                            --><input type="tel" name="telephone" id="telephone" />
+                            --><input type="tel" name="telephone" id="telephone"/>
                         </li>
                         <li>
                             <label for="adresse">Adresse (*)</label><!--
-                            --><input type="text" name="adresse" id="adresse" />
+                            --><input type="text" name="adresse" id="adresse"/>
                         </li>
                     </ul>
                 </fieldset>
-                <div id="reservation_header"></div> 
+                <div id="reservation_header"></div>
                 <fieldset id="voyage">
                     <legend>Voyage</legend>
                     <ul>
@@ -78,10 +78,6 @@
                         <li>
                             <label for="date_debut">Date de depart</label><!--
                             --><input type="text" name="date_debut" id="date_debut"/>
-                        </li>
-                        <li>
-                            <label for="date_fin">Date de retour</label><!--
-                            --><input type="text" name="date_fin" id="date_fin"/>
                         </li>
                         <li>
                             <label for="nb_pers">Nombre de voyageurs</label><!--
@@ -97,40 +93,56 @@
                     <input type="submit" id="ok" value="Valider"/>
                     <input type="submit" id="cancel" value="Annuler"/>
                 </div>
-            </form>
-                <div>
-                    <table>
-                        <caption>Recapitulatif de la commande</caption>
-                        <thead>
-                        <tr>
-                            <th>Forfait et options</th>
-                            <th>Prix unitaire</th>
-                            <th>Quantite</th>
-                            <th>Total</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>Nom du forfait</td>
-                            <td>pu</td>
-                            <td>qte</td>
-                            <td>total</td>
-                        </tr>
-                        <tr>
-                            <td>Nombre d'animaux de compagnie</td>
-                            <td>pu</td>
-                            <td>qte</td>
-                            <td>total</td>
-                        </tr>
-                        <tr>
-                            <td colspan="3">Total</td>
-                            <td>prix total</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    
+                <div class="mb_container">
+                    <div class="mb_background"></div>
+                    <div id="confirmation">
+                        <h3>CONFIRMATION</h3>
+                        <p>Souhaitez-vous confirmer votre reservation ?</p>
+                        <div class="buttons">
+                            <a href="index.html" class="ok">Accepter</a>
+                            <a href="index.html" class="cancel">Refuser</a>
+                        </div>
+                    </div>
+                    <div id="annulation">
+                        <h3>ANNULATION</h3>
+                        <p>Votre commande a bien ete annulee.</p>
+                        <div class="buttons">
+                            <a href="index.html" class="cancel">Retour</a>
+                        </div>
+                    </div>
                 </div>
-            
+            </form>
+            <div>
+                <table>
+                    <caption>Recapitulatif de la commande</caption>
+                    <thead>
+                    <tr>
+                        <th>Forfait et options</th>
+                        <th>Prix unitaire</th>
+                        <th>Quantite</th>
+                        <th>Total</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Nom du forfait</td>
+                        <td>pu</td>
+                        <td>qte</td>
+                        <td>total</td>
+                    </tr>
+                    <tr>
+                        <td>Nombre d'animaux de compagnie</td>
+                        <td>pu</td>
+                        <td>qte</td>
+                        <td>total</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">Total</td>
+                        <td>prix total</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </section>
     </main>
     <footer>

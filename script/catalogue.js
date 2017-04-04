@@ -34,27 +34,33 @@ $(function () {
         console.log('id du forfait : ', forfid_lien);
         var forfait = forfaits_data[forfid_lien]; // Le forfait dont il faut afficher les détails
         //Information detallée de chaque forfait.
-        div_details.append('<h3>' + forfait.nom + '</h3>');
-        div_details.append('<div id="cat_imag"><ul id="images_list"></ul></div>');
-        div_details.append('<div><p class="info">' + forfait.ref_forfait + '</p></div>');
-        div_details.append('<div><p class="info">' + forfait.info_cat + '</p></div>');
-        div_details.append('<h4>' + 'Hebergement' + '</h4>');
-        div_details.append(forfait.hebergement);
-        div_details.find('ul').eq(1).attr('id', 'info_heber');
-        div_details.append(forfait.lieu);
-        div_details.find('ul').eq(2).attr('id', 'info_lieu');
-        div_details.append(forfait.niveau);
-        div_details.find('ul').eq(3).attr('id', 'forfait_niveau');
-        div_details.append('<p class="sup_info un">' + 'Debut saison : ' + forfait.debut_saison + '</p>');
-        div_details.append('<p class="sup_info deux">' + 'Fin saison : ' + forfait.fin_saison + '</p>');
-        div_details.append('<p class="sup_info trois">' + 'Jours: ' + forfait.duree + '</p>');
-        div_details.append('<p class="sup_info quatre">' + 'Prix par personne :' + forfait.prix + '$' + '</p>');
-        div_details.append('<p class="sup_info cinq">' + 'Places disponibles: ' + forfait.places_dispo + '</p>');
-        div_details.append('<p>' + 'Maximum d\'animaux: ' + forfait.max_animaux + '</p>');
-        div_details.append('<p>' + 'Prix par animal: ' + forfait.prix_animal + '$' + '</p>');
-        div_details.append('<p class="contact">' + 'Information pour nous contacter :' + forfait.infos + '</p>');
-        div_details.find('ul').eq(4).attr('id', 'address');
-        div_details.append('<a class="reservation" href="reservation.html?forfid=' + forfid_lien + '">Réserver</a>');
+        div_details
+            .append('<h2>' + forfait.nom + '</h2>')
+            //.append('<p class="info">' + forfait.ref_forfait + '</p>')
+            .append('<p class="info">' + forfait.info_cat + '</p>')
+            .append('<div id="cat_imag"><ul id="images_list"></ul></div>')
+            .append('<div id="forf_info">')
+            .append('<div id="div_details_content">');
+        $('div#div_details_content')
+            .append('<h3>' + 'Hebergement' + '</h3>')
+            .append(forfait.hebergement)
+            .append(forfait.lieu)
+            .append(forfait.niveau)
+            .append('<p>' + 'Maximum d\'animaux: ' + forfait.max_animaux + '</p>')
+            .append('<p>' + 'Prix par animal: ' + forfait.prix_animal + '$' + '</p>')
+            .append('<p class="contact">' + 'Information pour nous contacter :' + forfait.infos + '</p>')
+            .append('<a class="reservation" href="reservation.html?forfid=' + forfid_lien + '">Réserver</a>');
+        $('div #forf_info')
+            .append('<p class="un">' + 'Debut saison : ' + forfait.debut_saison + '</p>')
+            .append('<p class="deux">' + 'Fin saison : ' + forfait.fin_saison + '</p>')
+            .append('<p class="trois">' + 'Jours: ' + forfait.duree + '</p>')
+            .append('<p class="quatre">' + 'Prix par personne :' + forfait.prix + '$' + '</p>')
+            .append('<p class="cinq">' + 'Places disponibles: ' + forfait.places_dispo + '</p>');
+        //div_details.find('ul').eq(1).attr('id', 'info_heber');
+        //div_details.find('ul').eq(2).attr('id', 'info_lieu');
+        //div_details.find('ul').eq(3).attr('id', 'forfait_niveau');
+        //div_details.find('ul').eq(4).attr('id', 'address');
+        ;
 
         //Images pour le carousel de chaque detail forfait
         div_details.find('#images_list').append('<li><img src="' + EXT_IMG_PATH + forfait.photo1 + '"/></li>');
