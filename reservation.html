@@ -44,26 +44,13 @@
     <main>
         <section>
             <h1>Votre reservation</h1>
-            <div id="reservation_titre">
-                <img src="images/img_catalogue/surf_vauclin_cat.jpg">
-                <div>
-                    <h2>Le Vauclin</h2>
-                    <h4>Martinique</h4>
-                    <ul>
-                        <li>Château Paille</li>
-                        <li>97280 Le Vauclin - Martinique</li>
-                        <li>Tél. : 0 596 74 33 68 - Base nautique : 0 596 74 21 90 - Fax : 0 596 74 21 12</li>
-                        <li>Courriel : <a href='mailto:info@globe-sportif.com'>info@globe-sportif.com</a></li>
-                    </ul>
-                </div>
-            </div>
             <form id="form_resa">
                 <fieldset id="client">
                     <legend>Client</legend>
                     <ul>
                         <li>
                             <label for="lastname">Nom (*)</label><!--
-                            --><input type="text" name="lastname" id="lastname" required/>
+                            --><input type="text" name="lastname" id="lastname" />
                         </li>
                         <li>
                             <label for="firstname">Prenom (*)</label><!--
@@ -83,61 +70,67 @@
                         </li>
                     </ul>
                 </fieldset>
+                <div id="reservation_header"></div> 
                 <fieldset id="voyage">
                     <legend>Voyage</legend>
                     <ul>
+                        <li></li>
                         <li>
                             <label for="date_debut">Date de depart</label><!--
-                            --><input type="date" name="date_debut" id="date_debut"/><!--
-                            --><label for="date_fin">Date de retour</label><!--
-                            --><input type="date" name="date_fin" id="date_fin"/>
+                            --><input type="text" name="date_debut" id="date_debut"/>
                         </li>
                         <li>
-                            <label for="nb_personnes">Nombre de voyageurs</label><!--
-                            --><input type="text" name="nb_personnes" id="nb_personnes"/><!--
-                            --><label for="nb_animaux">Nombre d'animaux de compagnie</label><!--
-                            --><select name="nb_animaux" id="nb_animaux">
-                            <option value="animaux">0</option>
-                            <option value="animaux">1</option>
-                            <option value="animaux">2</option>
-                        </select>
+                            <label for="date_fin">Date de retour</label><!--
+                            --><input type="text" name="date_fin" id="date_fin"/>
+                        </li>
+                        <li>
+                            <label for="nb_pers">Nombre de voyageurs</label><!--
+                            --><input type="text" name="nb_pers" id="nb_pers"/>
+                        </li>
+                        <li>
+                            <label for="nb_animaux">Nombre d'animaux de compagnie</label><!--
+                            --><input type="text" name="nb_animaux" id="nb_animaux"/>
                         </li>
                     </ul>
                 </fieldset>
-
+                <div id="validation">
+                    <input type="submit" id="ok" value="Valider"/>
+                    <input type="submit" id="cancel" value="Annuler"/>
+                </div>
+            </form>
                 <div>
                     <table>
                         <caption>Recapitulatif de la commande</caption>
                         <thead>
                         <tr>
                             <th>Forfait et options</th>
-                            <th>Quantite</th>
                             <th>Prix unitaire</th>
+                            <th>Quantite</th>
+                            <th>Total</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr>
                             <td>Nom du forfait</td>
+                            <td>pu</td>
                             <td>qte</td>
-                            <td>prix</td>
+                            <td>total</td>
                         </tr>
                         <tr>
                             <td>Nombre d'animaux de compagnie</td>
+                            <td>pu</td>
                             <td>qte</td>
-                            <td>prix</td>
+                            <td>total</td>
                         </tr>
                         <tr>
-                            <td colspan="2">Total</td>
+                            <td colspan="3">Total</td>
                             <td>prix total</td>
                         </tr>
                         </tbody>
                     </table>
-                    <div id="validation">
-                        <input type="submit" id="ok" value="Valider"/>
-                        <input type="submit" id="cancel" value="Annuler"/>
-                    </div>
+                    
                 </div>
-            </form>
+            
         </section>
     </main>
     <footer>
@@ -187,6 +180,7 @@
 <script src="http://p86-tp-forfaits.projetisi.com/script/forfaits.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="script/common.js"></script>
 <script src="script/reservation.js"></script>
 </body>
 </html>
