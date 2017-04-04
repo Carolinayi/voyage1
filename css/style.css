@@ -586,8 +586,8 @@ input[type="submit"]#ok:hover, input[type="submit"]#cancel:hover {
 	display: none;
 	margin: 50px auto;
 	position: relative;
-	width: 600px;
-	height:400px;
+	width: 1200px;
+	/*height:400px;*/
 	padding: 40px;
 	border: 10px solid #ffa000;
 	overflow-y: scroll;

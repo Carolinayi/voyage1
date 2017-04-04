@@ -40,11 +40,10 @@ $(function () {
 	
 	/**
 	 * Fonction qui calcul la date de retour : date de depart + duree du forfait
-	 */
 	function calcul_retour (forfait, depart) {
 		var retour = new Date(depart.getTime()+(forfait.duree*24*60*60*1000));
 		return retour;
-	}
+	}*/
     
 	/**
 	* Lorsque l'inpute date_fin reçoit le focus, on calcul 
@@ -58,10 +57,10 @@ $(function () {
 	
 	/**
 	* Lorsque le champ nb_pers perd le focus on arrondi la valeur entrée
-	*/
+
     $('#nb_pers').focusout(function() {
         $(this).val(Math.round(parseInt($(this).val())));
-    });
+    });*/
 	
 	/**
 	* Lorsque le champ nb_animaux perd le focus on arrondi la valeur entrée
@@ -98,6 +97,7 @@ $(function () {
 		// Test du champ NOM
 		var input_nom = $('#lastname');
 		var nom_valide = input_nom.val().trim().length >= 1;
+        console.log('Nom valide : ' + nom_valide);
 		
 		if (!nom_valide) { // si la valeur du champ est inferieure a 1 caractere
 			form_valide = false;
@@ -116,6 +116,7 @@ $(function () {
 		// Test du champ PRENOM
 		var input_prenom = $('#firstname');
 		var prenom_valide = input_prenom.val().trim().length >= 1;
+        console.log('Prenom valide : ' + prenom_valide);
 	 
 		if (!prenom_valide) { // si la valeur du champ n'est pas valide < a 1 caractere
 			form_valide = false;
@@ -136,7 +137,8 @@ $(function () {
 		var pattern_courriel = new RegExp((/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i));
 		var exp_rat_courriel = new RegExp(pattern_courriel, 'g');// Création d'un objet Javascript RegExp
 		var courriel_valide = exp_rat_courriel.test(input_courriel.val());
-	   
+        console.log('Courriel valide : ' + courriel_valide);
+
 		if (courriel_valide == false) { // si la valeur du champ n'est pas valide < a 1 caractere
 			form_valide = false;
 			input_courriel.addClass('error');
@@ -157,7 +159,8 @@ $(function () {
 		var pattern_telephone = new RegExp( /^\(?([0-9]{3})\)?[-]?([0-9]{3})[-]?([0-9]{4})$/);
 		var exp_rat_telephone = new RegExp(pattern_telephone, 'g');// Création d'un objet Javascript RegExp
 		var telephone_valide = exp_rat_telephone.test(input_telephone.val());
-	 
+        console.log('Telephone valide : ' + telephone_valide);
+
 		if (telephone_valide == false) { // si la valeur du champ n'est pas valide < a 1 caractere
 			form_valide = false;
 			input_telephone.addClass('error');
@@ -175,7 +178,8 @@ $(function () {
 		// Test du champ ADRESSE
 		var input_adresse = $('#adresse');
 		var adresse_valide = input_adresse.val().trim().length >= 10;
-		
+        console.log('Adresse valide : ' + adresse_valide);
+
 		if (!adresse_valide) { // si la valeur du champ n'est pas valide < a 1 caractere
 			form_valide = false;
 			input_adresse.addClass('error');
@@ -202,12 +206,14 @@ $(function () {
 		var pattern_date = new RegExp(/^\d{4}-\d{2}-\d{2}$/);
 		var exp_rat_date = new RegExp(pattern_date, 'g');
 		var format_date_depart_valide = exp_rat_date.test(date_depart);
+        console.log('Date depart : ' + date_depart);
+		console.log('Format depart valide : ' + format_date_depart_valide);
 	   
 		// test la periode de la saison
 		var date_valide = true;
 		if ((new Date(date_depart) < date_debut_forfait) || (new Date(date_depart) > date_fin_forfait) || (!format_date_depart_valide)){
 			date_valide = false;
-		};
+		}
 
 		// affichage de l'erreur
 		if (!date_valide) {
@@ -224,10 +230,12 @@ $(function () {
 			}
 		}
 
-		// Test du champ de DATE DE RETOUR
+		/* Test du champ de DATE DE RETOUR
 		var input_retour = $('#date_fin');
 		var date_retour =  $.datepicker.formatDate("yy-mm-dd", new Date(input_retour.val()));
 		var format_date_retour_valide = exp_rat_date.test(date_retour);
+		console.log('Date retour : ' + date_retour);
+		console.log('Format retour valide : ' + format_date_retour_valide);
 	  
 		// affichage de l'erreur
 		if (!format_date_retour_valide) {
@@ -242,14 +250,16 @@ $(function () {
 				input_retour.next().remove();
 				}
 			}
-		}
+		}*/
 
 		// Test du champ NB VOYAGEURS
 		var input_voyageurs = $('#nb_pers');
 		var voyageurs_valide = true;
+        console.log('Voyageurs valide : ' + voyageurs_valide);
+
 		if (input_voyageurs.val() < 1) {
 			voyageurs_valide = false;
-		};
+		}
 	  
 		if (!voyageurs_valide) { // si la valeur du champ n'est pas valide < a 1 caractere
 			form_valide = false;
@@ -268,9 +278,11 @@ $(function () {
 		// Test du champ NB ANIMAUX
 		var input_animaux = $('#nb_animaux');
 		var animaux_valide = true;
+        console.log('Animaux valide : ' + animaux_valide);
+
 		if ((input_animaux.val().length < 1 ) || (input_animaux.val() > forfait_resa.max_animaux)) {
 			animaux_valide = false;
-		};
+		}
 	   
 		if (!animaux_valide) { // si la valeur du champ n'est pas valide < a 1 caractere
 			form_valide = false;
@@ -293,14 +305,22 @@ $(function () {
 		} else {
 			console.log('Soumission reussie');
 			event.preventDefault();
-			afficher_commande();
+			afficher_recap();
+			$(function() {
+				$('#ok').on('click', function () {
+					mb_open('#confirmation', '.ok, .cancel');
+				});
+				$('#cancel').on('click', function () {
+					mb_open('#annulation', '.cancel');
+				});
+			});
 		}
 	};
 
 	/**
 	 * Fonction pour afficher le recapitulatif de la commande
 	 */
-	function afficher_commande() {
+	function afficher_recap() {
 		// Ecrire le container et le contenu du div.reservation_header
 		$('tbody td:eq(0)').text(forfait_resa.nom); // nom du forfait
 		$('tbody td:eq(1)').text(Number(forfait_resa.prix) + ' $'); // prix par personne
@@ -315,4 +335,70 @@ $(function () {
 });
 
 
+// Variables de modal box (mb)
+var mb_data = {'container': null};
+
+/**
+ * Recherche le container du mb - s'il n'existe pas, on le cree
+ * Met a jour la var mb_data
+ */
+function mb_create_container() {
+	mb_data.container = $('.mb_container');
+	if (mb_data.container.length == 0) {
+		mb_data.container = $('<div.mb_container>')
+			.appendTo('form');
+		// Creer le div background dedans
+		$('<div.mb-background>')
+			.appendTo(mb_data.container)
+			.on('click', mb_close);
+		console.log('mb_container créé');
+	}
+}
+
+/**
+ * Afficher la mb et son contenu
+ * @param target (string) : Selecteur de l'élément a afficher dans la mb
+ * @param closingItems (string) : (facultatif) Selecteur du oud des elements qui doivent ferner au click la mb
+ * @param css_options (objet) : (facultatif) Options CSS pour personnaliser le background de la mb
+ */
+function mb_open(target, closingItems, css_options) {
+	console.log('ouverture de ' + target);
+	if (mb_data.container === null) { // creation du container si absent
+		mb_create_container();
+	}
+
+	// Container et son BG  créés
+	if ('undefined' !== typeof css_options) {
+		mb_data.container.find('.mb_background').css(css_options);
+	}
+	var clone = $(target)
+		.clone()
+		.addClass('mb_item')
+		.appendTo(mb_data.container) // le placer a la fin du container
+		.show()
+		.parent() // repasser au mb_container
+		.fadeIn(); // faire apparaitre
+
+	// Gerer les elements responsables de la fermeture au click en plus du BG
+	// s'ils sont fournis
+	// closingItems s'il est fourni est un selecteur
+	if ('undefined' !== typeof closingItems) {
+		clone
+			.find(closingItems)
+			.on('click', mb_close);
+	}
+}
+
+/**
+ * Fermer la mb
+ */
+function mb_close() {
+	console.log('Fermeture mb');
+	mb_data.container
+		.fadeOut(1000, function () {
+			$(this)
+				.find('.mb_item')
+				.remove(); // Detruire le clone de classe mb_item
+		})
+}
 
