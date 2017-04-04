@@ -10,10 +10,11 @@ var timer_forfait = null;
 var index_image = 0;
 
 const DUREE_AFFICHAGE = 3000;
+const EXT_IMG_PATH = 'http://p86-tp-forfaits.projetisi.com/images/'; // Path vers les images du serveur
 
 
 // Synchrornisation
-$(function(){
+$(function () {
     console.log("DOM Contruit");
     catalogue_cont = $('#accordion_cats');
     console.log(catalogue_cont);
@@ -22,14 +23,13 @@ $(function(){
     update_accordion(catalogue_cont.children('h3:first'));
 
     // Écouter au click sur les hyperliens de classe 'forfait_detail'
-    $('a.forfait_detail').on('click', function(event){
+    $('a.forfait_detail').on('click', function (event) {
         event.preventDefault(); // Bloquer la navigation
         // Aller chercher le href de l'hyperlien target
         var div_details = $('#mb_detail_forfait'); // Le div de la lightbox des détails de forfait
 
         div_details.children().remove();
 
-        console.log($(this).attr('href'));
         var forfid_lien = getParameterByName('forfid', $(this).attr('href')); // Valeur du id du forfait dans l'hyperlien
         console.log('id du forfait : ', forfid_lien);
         var forfait = forfaits_data[forfid_lien]; // Le forfait dont il faut afficher les détails
@@ -38,22 +38,22 @@ $(function(){
         div_details.append('<div id="cat_imag"><ul id="images_list"></ul></div>');
         div_details.append('<div><p class="info">' + forfait.ref_forfait + '</p></div>');
         div_details.append('<div><p class="info">' + forfait.info_cat + '</p></div>');
-        div_details.append('<h4>' +'Hebergement'+ '</h4>');
+        div_details.append('<h4>' + 'Hebergement' + '</h4>');
         div_details.append(forfait.hebergement);
-        div_details.find('ul').eq(1).attr('id','info_heber');
+        div_details.find('ul').eq(1).attr('id', 'info_heber');
         div_details.append(forfait.lieu);
-        div_details.find('ul').eq(2).attr('id','info_lieu');
+        div_details.find('ul').eq(2).attr('id', 'info_lieu');
         div_details.append(forfait.niveau);
-        div_details.find('ul').eq(3).attr('id','forfait_niveau');
-        div_details.append('<p class="sup_info un">' +'Debut saison : '+ forfait.debut_saison + '</p>');
-        div_details.append('<p class="sup_info deux">' +'Fin saison : '+forfait.fin_saison + '</p>');
-        div_details.append('<p class="sup_info trois">' +'Jours: ' + forfait.duree + '</p>');
-        div_details.append('<p class="sup_info quatre">' +'Prix par personne :' + forfait.prix + '$'+ '</p>');
-        div_details.append('<p class="sup_info cinq">' +'Places disponibles: ' + forfait.places_dispo + '</p>');
-        div_details.append('<p>' +'Maximum d\'animaux: ' +forfait.max_animaux + '</p>');
-        div_details.append('<p>' +'Prix par animal: ' + forfait.prix_animal + '$'+'</p>');
-        div_details.append('<p class="contact">' +'Information pour nous contacter :' +forfait.infos + '</p>');
-        div_details.find('ul').eq(4).attr('id','address');
+        div_details.find('ul').eq(3).attr('id', 'forfait_niveau');
+        div_details.append('<p class="sup_info un">' + 'Debut saison : ' + forfait.debut_saison + '</p>');
+        div_details.append('<p class="sup_info deux">' + 'Fin saison : ' + forfait.fin_saison + '</p>');
+        div_details.append('<p class="sup_info trois">' + 'Jours: ' + forfait.duree + '</p>');
+        div_details.append('<p class="sup_info quatre">' + 'Prix par personne :' + forfait.prix + '$' + '</p>');
+        div_details.append('<p class="sup_info cinq">' + 'Places disponibles: ' + forfait.places_dispo + '</p>');
+        div_details.append('<p>' + 'Maximum d\'animaux: ' + forfait.max_animaux + '</p>');
+        div_details.append('<p>' + 'Prix par animal: ' + forfait.prix_animal + '$' + '</p>');
+        div_details.append('<p class="contact">' + 'Information pour nous contacter :' + forfait.infos + '</p>');
+        div_details.find('ul').eq(4).attr('id', 'address');
         div_details.append('<a class="reservation" href="reservation.html?forfid=' + forfid_lien + '">Réserver</a>');
 
         //Images pour le carousel de chaque detail forfait
@@ -72,7 +72,7 @@ $(function(){
         //Instructions pour la boite modale.
         div_details.addClass('.mb_item').show();
         $('.mb_container').fadeIn();
-        $(".mb_background").on ('click',function () {
+        $(".mb_background").on('click', function () {
             console.log('.mb_background');
             $('.mb_container').fadeOut(1000, function () {
                 div_details.hide();
@@ -81,7 +81,7 @@ $(function(){
 
     });
     //Evenement de l'accordion
-    $('h3').on ('click',function () {
+    $('h3').on('click', function () {
         update_accordion(this);
     });
 });
@@ -93,7 +93,7 @@ $(function(){
 
 function afficher_categories() {
     console.log('Appel Afficher categories', 'nb de categories : ', categories.length);
-    for (var i=0 ; i < categories.length ; i++) {
+    for (var i = 0; i < categories.length; i++) {
         var categorie = categories[i];
         $('<h3>')
             .appendTo(catalogue_cont)
@@ -104,8 +104,6 @@ function afficher_categories() {
 }
 
 
-
-
 /**
  * Afficher le catalogue par catégories, chaque forfait affiché dans le container (l'accordéon) de sa catégorie
  */
@@ -113,17 +111,17 @@ function afficher_forfaits() {
     console.log('Appel Afficher forfaits', 'nb de forfaits : ', forfaits_data.length);
     var forfait_lists = catalogue_cont.find('ul.forfait_list'); // Tous les divs de categorie
     console.log(forfait_lists);
-    for (var i=0 ; i < forfaits_data.length; i++) {
+    for (var i = 0; i < forfaits_data.length; i++) {
         var forfait = forfaits_data[i];
         $('<li class="forfait">')
             .appendTo(forfait_lists.eq(forfait.categorie))
-            .append('<h4>' + forfait.nom + '</h4>')
             .append('<img src="' + EXT_IMG_PATH + forfait.img_catalogue + '" />')
-            .append('<a class="forfait_detail" href="catalogue.html?forfid=' + i + '">Détails</a>')
-            .append('<p id="ref_cat">' + forfait.ref_forfait + '</p>')
+            .append('<div>');
+        $('li.forfait').eq(i).find('div:first')
+            .addClass('forfait_desc')
+            .append('<h4>' + forfait.nom + '<span id="prix"> ' + forfait.prix + ' $</span></h4>')
             .append('<p id="info_extra">' + forfait.info_cat + '</p>')
-            .append('<p id="jours">' + forfait.duree +' jours' + '</p>')
-            .append('<p id="prix"> Prix par personne: $' + forfait.prix);
+            .append('<a class="forfait_detail" href="catalogue.html?&forfid=' + i + '">Détails</a>');
     }
 }
 

@@ -208,86 +208,90 @@ section > p {
 
 /******************* CATALOGUE *******************/
 
+#content {
+	margin-top: 30px;
+}
 #accordion_cats h3 {
 	background-color: #6882e1;
 	color: white;
 	cursor: pointer;
-	padding: 18px;
+	padding: 20px;
 	width: 100%;
 	text-align: left;
+	letter-spacing: 2px;
 	transition: 0.4s;
 	display: inline-block;
 }
-
-#accordion_cats > div{
-	display: none;
-}
-
 #accordion_cats h3:hover, #accordion_cats h3.active{
 	background-color: #ffa000;
 }
-.forfait_list {
-	padding: 0 18px;
+#accordion_cats > div{
+	display: none;
+}
+ul.forfait_list {
 	background-color: white;
 }
-.forfait {
-	margin-top : 20px;
+li.forfait {
+	clear: both;
+	width: 100%;
+	height: 185px;
 	position: relative;
+	list-style-type: none;
 }
 .forfait img{
 	display: inline-block;
+	float: left;
+	margin: 25px;
 }
-.forfait h4 {
+div.forfait_desc {
+	float: left;
+	width: 70%;
+	height: 158px;
+	margin-top: 25px;
+	position: relative;
+}
+.forfait_desc h4 {
 	font-size: 20px;
+	letter-spacing: 2px;
 	margin-top: 10px;
-	position: absolute;
-	left: 250px;
-	top: 15px;
-}
-ul.forfaits {
-	list-style-type: none;
-}
-#ref_cat{
-	position: absolute;
-	left: 250px;
-	top: 60px;
-	font-style: italic;
-	color: #6882e1;
-}
-#info_extra{
-	position: absolute;
-	left: 250px;
-	top: 90px;
-	width: 50%;
+	border-bottom: 1px solid #252323;
 }
 #prix {
-	position: absolute;
-	right: 100px;
-	top: 60px;
+	float: right;
+	color: #ffa000;
+	letter-spacing: 2px;
 	font-weight: bold;
 }
-
-#jours {
-	font-weight: bold;
-	position: absolute;
-	right: 100px;
-	top: 80px;
+.forfait_desc p:first-of-type {
+	margin-top: 20px;
+}
+.forfait_desc p {
+	font-size: 0.9em;
+	line-height: 1.5em;
+	letter-spacing: 2px;
 }
 .forfait_detail {
-	display:inline-block;
-	height:50px;
-	line-height: 50px;
-	width:5em;
-	border-radius:20px 10px;
-	background-color: #ffa000;
-	font-weight: bolder;
-	float:right;
-	margin-right: 100px;
-	margin-top: 100px;
+	display: inline-block;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	/*margin-top: 15px;*/
+	background-color: #252323;
+	color: #ffa000;
+	letter-spacing: 2px;
+	font-weight: 500;
+	padding: 10px 25px;
 	text-align: center;
 	vertical-align: middle;
 	text-decoration: none;
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
 }
+.forfait_detail:hover {
+	background-color: #ffa000;
+	color: #252323;
+}
+/* Light Box */
 #detail_produit {
 	display : none;
 	background: white;
@@ -402,43 +406,39 @@ ul#images_list > li img {
  
 /******************* Page de RESERVATION *******************/
 
-#reservation_titre {
+#reservation_header {
 	height: 210px;
 	margin-top: 50px;
 	background-color: #252323;
 	color: #fff;
 }
-#reservation_titre > img {
+#reservation_header > img {
 	float: left;
 	padding: 26px;
 }
-#reservation_titre > div {
+#reservation_header > div {
 	float: left;
+	width: 65%;
 	padding-left: 100px;
 }
-#reservation_titre h2 {
-	padding: 20px 0 10px;
+#reservation_header h2 {
+	padding: 25px 0 10px;
 }
-#reservation_titre h4 {
+#reservation_header h4 {
 	color: #5D5D5D;
 	padding-bottom: 10px;
 	border-bottom: 1px solid #fff;
 }
-#reservation_titre li:first-of-type {
+#reservation_header p:first-of-type {
 	margin-top: 20px;
 }
-#reservation_titre li{
+#reservation_header p {
 	line-height: 1.5em;
 	letter-spacing: 2px;
-	font-size: 0.85em;
+	font-size: 0.9em;
 	font-weight: 200;
 }
-#reservation_titre a {
-	color: #fff;
-}
-#reservation_titre a:hover {
-	color: #ffa000;
-}
+
 /* Debut du formulaire */
 fieldset {
 	margin: 50px 0;
@@ -487,6 +487,9 @@ form li input:nth-of-type(2), form li select {
 	margin:0 0 0 25px;
 	font-size: 0.9em;
 	color:red;
+}
+#voyage img.ui-datepicker-trigger {
+	height: 20px;
 }
 /* Fin du formulaire */
 /* Debut du tableau recapitulatif */

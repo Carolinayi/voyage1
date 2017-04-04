@@ -10,8 +10,6 @@ var diapo_4 = [extraire_nom(forfaits_data[9].nom), extraire_pays(forfaits_data[9
 var diapo_5 = [extraire_nom(forfaits_data[10].nom), extraire_pays(forfaits_data[10].nom), forfaits_data[10].info_cat, forfaits_data[10].prix, forfaits_data[10].photo1];
 var diapo_6 = [extraire_nom(forfaits_data[11].nom), extraire_pays(forfaits_data[11].nom), forfaits_data[11].info_cat, forfaits_data[11].prix, forfaits_data[11].photo2];
 var galerie_slider = [diapo_1, diapo_2, diapo_3, diapo_4, diapo_5, diapo_6];
-//console.log(diapo_1, diapo_2, diapo_3, diapo_4, diapo_5, diapo_6);
-console.log(galerie_slider.length);
 
 // Declaration des variables
 var timer = null;
@@ -26,12 +24,8 @@ const DUREE_AFFICHAGE = 6000;
 document.addEventListener('DOMContentLoaded', function () {
     console.log('DOM contruit');
     // Initialisation des variables
-
-    console.log(i_diapo_active);
     ul_slider_img = document.getElementById('slider_diapo_img'); // ul#slider_diapo_img
     ul_slider_content = document.getElementById('slider_diapo_txt');// ul#slider_diapo_txt
-    //console.log(ul_slider_img);
-    //console.log(ul_slider_content);
     i_diapo_active = 0;
     timer = setInterval(afficher_diapo_suiv, DUREE_AFFICHAGE);
     // Appel des fonctions
@@ -52,10 +46,10 @@ function extraire_nom(nom) { // param nom vaut forfaits_data[0].nom
 
 /**
  * Fonction pour extraire le pays du nom du forfait
- * @param nom
+ * @param pays
  * @returns {string}
  */
-function extraire_pays(pays) { // param nom vaut forfaits_data[0].nom
+function extraire_pays(pays) { // param pays vaut forfaits_data[0].nom
     var p1 = pays.indexOf('(');
     var p2 = pays.indexOf(')');
     var nom_pays = pays.substring(p1 + 1, p2);
@@ -77,15 +71,11 @@ function ecrire_ul_slider() {
  * Fonction slide
  */
 function afficher_diapo_suiv() {
-    console.log("Afficher la diapo suivante");
     i_diapo_active++;
     if (i_diapo_active >= galerie_slider.length) { // le slider revient en p0
         i_diapo_active = 0;
     }
     ul_slider_img.style.left = -800 * i_diapo_active + "px";
     ul_slider_content.style.top = -500 * i_diapo_active + "px";
-    //console.log(ul_slider_img);
-
-    console.log(i_diapo_active);
 }
 

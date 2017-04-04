@@ -4,8 +4,29 @@
  */
 'use strict';
 
-const EXT_IMG_PATH = 'http://p86-tp-forfaits.projetisi.com/images/'; // Path vers les images du serveur
 
+/**
+ * Fonction pour extraire le nom du forfait du nom de la BD
+ * @param nom
+ * @returns {string}
+ */
+function extraire_nom(nom) { // param nom vaut forfaits_data[0].nom
+    var p0 = nom.indexOf('(');
+    var nom_forfait = nom.substring(nom.charAt(0), p0 - 1);
+    return nom_forfait;
+}
+
+/**
+ * Fonction pour extraire le pays du nom du forfait
+ * @param nom
+ * @returns {string}
+ */
+function extraire_pays(pays) { // param nom vaut forfaits_data[0].nom
+    var p1 = pays.indexOf('(');
+    var p2 = pays.indexOf(')');
+    var nom_pays = pays.substring(p1 + 1, p2);
+    return nom_pays;
+}
 
 /**
  * Lire un paramètre dans une url, fournie ou prise dans l'url de la page
@@ -23,3 +44,4 @@ function getParameterByName(name, url) {
     var match = new RegExp('[?&]' + name + '=([^&]*)').exec(url);
     return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
 }
+
